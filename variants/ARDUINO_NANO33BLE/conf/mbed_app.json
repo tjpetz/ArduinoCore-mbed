@@ -4,7 +4,7 @@
   ],
   "target_overrides": {
     "*": {
-      "ble.ble-role-broadcaster": false,
+      "ble.ble-feature-extended-advertising": 0,
       "target.printf_lib": "std",
       "platform.stdio-buffered-serial": false,
       "platform.stdio-baud-rate": 115200,

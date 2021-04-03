@@ -12,11 +12,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-#       - name: Checkout the common API
-#         uses: actions/checkout@v2
-#         with:
-#           repository: arduino/ArduinoCore-API
-#           path: extras/ArduinoCore-API
+      - name: Checkout the common API
+        uses: actions/checkout@v2
+        with:
+          repository: arduino/ArduinoCore-API
+          path: extras/ArduinoCore-API
           
       - name: Install Arduino-CLI
         uses: arduino/setup-arduino-cli@v1.1.1
@@ -32,25 +32,26 @@ jobs:
        
       - name: Configure mbed
         run: |
-          mbed config -G GCC_ARM_PATH $GITHUB_WORKSPACE/.arduino15/packages/arduino/tools/arm-none-eabi-gcc/7-2017q4/bin
+          mbed config -G GCC_ARM_PATH ~/.arduino15/packages/arduino/tools/arm-none-eabi-gcc/7-2017q4/bin
           mbed config -G GCC_ARM_PATH
           
       - name: Add arm GCC tools to the path
         run: |
-          PATH=$GITHUB_WORKSPACE/.arduino15/packages/arduino/tools/arm-none-eabi-gcc/7-2017q4/bin:$PATH
+          export PATH=~/.arduino15/packages/arduino/tools/arm-none-eabi-gcc/7-2017q4/bin:$PATH
       
-#       - name: symlink the Arduino API
-#         run: |
-#           ln -s $GITHUB_WORKSPACE/extras/ArduinoCore-API/api $GITHUB_WORKSPACE/cores/arduino/api
+      - name: symlink the Arduino API
+        run: |
+          ln -s $GITHUB_WORKSPACE/extras/ArduinoCore-API/api $GITHUB_WORKSPACE/cores/arduino/api
       
       - name: build core
         run: |
           echo $PATH
+          ls -l
           ./mbed-os-to-arduino -c -u ARDUINO_NANO33BLE:ARDUINO_NANO33BLE
           
       - name: review build
         run: |
-          ls -lR variants/ARDUINO_NANO33BLE
+          ls -lR $GITHUB_WORKSPACE/variants/ARDUINO_NANO33BLE
           
         
       

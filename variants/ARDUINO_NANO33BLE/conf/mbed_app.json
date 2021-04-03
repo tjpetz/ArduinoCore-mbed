@@ -4,6 +4,7 @@
   ],
   "target_overrides": {
     "*": {
+      "target.features_remove": ["BLE"],
       "target.printf_lib": "std",
       "platform.stdio-buffered-serial": false,
       "platform.stdio-baud-rate": 115200,

@@ -5,6 +5,7 @@ The repository contains the Arduino APIs and IDE integration files targeting a g
 ## Github Actions
 
 Adding support for the Github action to build the mbed OS library.
+
 [![Build](https://github.com/tjpetz/ArduinoCore-mbed/actions/workflows/build.yml/badge.svg)](https://github.com/tjpetz/ArduinoCore-mbed/actions/workflows/build.yml)
 
 ## Installation

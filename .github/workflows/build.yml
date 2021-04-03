@@ -1,0 +1,44 @@
+name: Build
+
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+  
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - users: actions/checkout@v2
+      
+      - name: Checkout the common API
+        uses: actions/checkout@v2
+        with:
+          repository: arduino/ArduinoCore-API
+          path: extras/ArduinoCore-API
+          
+      - name: Install Arduino-CLI
+        uses: arduino/setup-arduino-cli@v1.1.1
+        
+      - name: Install the platform
+        run: |
+          arduino-cli core update-index
+          arduino-cli core install arduino:mbed
+          
+      - name: install MbedOS
+        run: |
+          python3 -m pip install mbed-cli
+       
+      - name: Configure mbed
+        run: |
+          mbed config -G GCC_ARM_PATH "/home/runner/.arduino15/packages/arduino/tools/arm-none-eabi-gcc/7-2017q4/bin"
+      
+      - name: Add arm GCC tools to the path
+        run: |
+          PATH=/home/runner/.arduino15/packages/arduino/tools/arm-none-eabi-gcc/7-2017q4/bin:$PATH
+      
+      - name: See what we have locally
+        run: ls -lR
+        
+      

@@ -49,5 +49,11 @@ jobs:
         run: |
           ls -lR $GITHUB_WORKSPACE/variants/ARDUINO_NANO33BLE
           
+      - name: save the important files
+        uses: actions/upload-artifact@v2
+        with:
+          name: libraries
+          path: $GITHUB_WORKSPACE/variants/ARDUINO_NANO33BLE
+          
         
       

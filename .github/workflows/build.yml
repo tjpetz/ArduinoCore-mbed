@@ -33,7 +33,8 @@ jobs:
       - name: Configure mbed
         run: |
           mbed config -G GCC_ARM_PATH $GITHUB_WORKSPACE/.arduino15/packages/arduino/tools/arm-none-eabi-gcc/7-2017q4/bin
-      
+          mbed config -G GCC_ARM_PATH
+          
       - name: Add arm GCC tools to the path
         run: |
           PATH=$GITHUB_WORKSPACE/.arduino15/packages/arduino/tools/arm-none-eabi-gcc/7-2017q4/bin:$PATH
@@ -44,6 +45,7 @@ jobs:
       
       - name: build core
         run: |
+          echo $PATH
           ./mbed-os-to-arduino -c -u ARDUINO_NANO33BLE:ARDUINO_NANO33BLE
           
       - name: review build

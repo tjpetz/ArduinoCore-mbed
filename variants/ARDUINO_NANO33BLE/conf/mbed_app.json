@@ -13,7 +13,7 @@
       "cordio.max-connections": 5,
       "platform.all-stats-enabled": true,
       "target.mbed_app_start": "0x10000",
-      "ble.present": 0
+      "ble.ble-feature-extended-advertising": false
     }
   }
 }

@@ -44,7 +44,7 @@ jobs:
       
       - name: build core
         run: |
-          ./mbed-os-to-arduino -c -u -a ARDUINO_NANO33BLE:ARDUINO_NANO33BLE
+          ./mbed-os-to-arduino -c -u ARDUINO_NANO33BLE:ARDUINO_NANO33BLE
           
       - name: review build
         run: |

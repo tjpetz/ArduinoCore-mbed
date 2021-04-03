@@ -12,11 +12,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - name: Checkout the common API
-        uses: actions/checkout@v2
-        with:
-          repository: arduino/ArduinoCore-API
-          path: extras/ArduinoCore-API
+#       - name: Checkout the common API
+#         uses: actions/checkout@v2
+#         with:
+#           repository: arduino/ArduinoCore-API
+#           path: extras/ArduinoCore-API
           
       - name: Install Arduino-CLI
         uses: arduino/setup-arduino-cli@v1.1.1
@@ -38,9 +38,9 @@ jobs:
         run: |
           PATH=$GITHUB_WORKSPACE/.arduino15/packages/arduino/tools/arm-none-eabi-gcc/7-2017q4/bin:$PATH
       
-      - name: symlink the Arduino API
-        run: |
-          ln -s $GITHUB_WORKSPACE/extras/ArduinoCore-API/api $GITHUB_WORKSPACE/cores/arduino/api
+#       - name: symlink the Arduino API
+#         run: |
+#           ln -s $GITHUB_WORKSPACE/extras/ArduinoCore-API/api $GITHUB_WORKSPACE/cores/arduino/api
       
       - name: build core
         run: |

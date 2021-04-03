@@ -41,7 +41,8 @@ jobs:
       
       - name: build core
         run: |
-          PATH=~/.arduino15/packages/arduino/tools/arm-none-eabi-gcc/7-2017q4/bin:$PATHecho $PATH
+          PATH=~/.arduino15/packages/arduino/tools/arm-none-eabi-gcc/7-2017q4/bin:$PATH
+          echo $PATH
           ./mbed-os-to-arduino -c -u ARDUINO_NANO33BLE:ARDUINO_NANO33BLE
           
       - name: review build

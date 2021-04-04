@@ -1,3 +1,9 @@
+# IMPORTANT
+
+Do not use this repository. It is a very experimental repo.  I am attempting to build Actions to compile Arduino Cores.  I'm only working on the Nano 33 BLE.  The actions are currently in development and due to active work by the Arduino team
+I have to remove most of their patches.  They seem to be working off mbed OS 6.2 where as I'm trying to work off 6.9.  At this point most of the patches seem unnecessary except for 1.
+
+
 # Arduino Core for mbed enabled devices
 
 The repository contains the Arduino APIs and IDE integration files targeting a generic mbed-enabled board
